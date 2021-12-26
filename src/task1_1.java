@@ -1,3 +1,5 @@
+// Найдите значение функции: z = ( (a – 3 ) * b / 2) + c.
+
 public class task1_1 {
         public static void main(String[] args) {
             int a = 5;

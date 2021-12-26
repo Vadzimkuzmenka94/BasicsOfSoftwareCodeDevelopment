@@ -1,25 +1,45 @@
-// это нужно сделать
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+/*
+Вычисляет значение функции на отрезке [a,b] c шагом h:
+    x, x>2
+    -x, x<=2
+ */
 
 public class task3_2 {
+    public static void calculate(double a, double b, double h) {
+        double x = a;
+        double y;
+
+        System.out.println(String.format("%7s %7s", "x", "y"));
+        while (x <= b) {
+            if (x > 2) {
+                y = x;
+            } else {
+                y = -x;
+            }
+
+            System.out.println(String.format("%7s %7s", Double.toString(x), Double.toString(y)));
+            x += h;
+        }
+    }
+
     public static void main(String[] args) {
-        int a,b;
-        double y,x,dx;
+        try {
+            Scanner in = new Scanner(System.in);
 
-        a=0;
-        b=5;
-        dx=0.5;
-        for (x=a;x<=b-dx;x+=dx )
-        {
-            System.out.print("x= " +x+",");
-            if (x<0.5){
-                y = Math.sqrt(x) *dx;
-                System.out.println("y ="+y);
-            }
-            else if (x>=0){
-                y =Math.exp(x);
-                System.out.println("y ="+y);
+            System.out.println("Введите промежуток, на котором будут высчитаны значения функции ([a,b]):");
+            double a = in.nextDouble();
+            double b = in.nextDouble();
 
-            }
+            System.out.println("Введите шаг:");
+            int h = in.nextInt();
+
+            calculate(a, b, h);
+
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

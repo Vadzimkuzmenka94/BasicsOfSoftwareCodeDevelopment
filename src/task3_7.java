@@ -1,4 +1,7 @@
 
+/*
+    Для каждого натурального числа в промежутке от m до n выводит все делители числа, кроме 1 и самого числа
+ */
 public class task3_7 {
     public static void main(String[] args) {
         int m = 12;
